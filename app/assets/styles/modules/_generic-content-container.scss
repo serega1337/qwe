@@ -1,0 +1,15 @@
+.generic-content-container {
+    p {
+        line-height: 1.65;
+
+        @include atSmall {
+            font-size: 1.12rem;
+        }
+
+        margin: 1.8rem 0;
+    }
+
+    p a {
+        font-weight: 700;
+    }
+}
