@@ -13,10 +13,23 @@
         padding-right: 65px;
     }
 
+    &--t-padding {
+        padding-top: 80px;
+    }
+
     &--gutters-large {
         margin-right: -100px;
+
         >div {
             padding-right: 100px;
+        }
+    }
+
+    &--gutters-small {
+        margin-right: -45px;
+
+        >div {
+            padding-right: 45px;
         }
     }
 
@@ -55,5 +68,54 @@
         &--no-t-margin {
             margin-top: 0;
         }
+    }
+
+    @include atLarge {
+        &__b-margin-until-Large {
+            margin-bottom: 0;
+        }
+
+        &__Large-4 {
+            float: left;
+            width: 33.33%;
+        }
+
+        &__Large-4--larger {
+            width: 37%;
+        }
+
+        &__Large-6 {
+            float: left;
+            width: 50%;
+        }
+
+        &__Large-8 {
+            float: left;
+            width: 66.66%;
+        }
+
+        &__Large-8--smaller {
+            width: 63%;
+        }
+
+        &--no-t-margin {
+            margin-top: 0;
+        }
+    }
+
+
+    // equal height
+    /*asdasd*/
+    &--equal-height-at-medium {
+        @include atMedium {
+            display: flex;
+
+            >div {
+                float: none;
+            }
+
+        }
+
+
     }
 }

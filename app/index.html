@@ -7,7 +7,8 @@
     <title>Clear View Escapesasdasd</title>
     <meta name="keywords" content="Travel planning, travel bundles, travel escapes, affordable travel ">
     <meta name="description" content="Your clarity. One trip away. We create soul restoring journeys that inspire you to be you.">
-    <link rel="stylesheet" href="temp/styles/styles.css"></head>
+    <link rel="stylesheet" href="temp/styles/styles.css">
+</head>
 
 <body>
     <header>
@@ -27,7 +28,7 @@
             <source srcset="assets/images/hero--medium.jpg" alt='qq' media='(min-width:990px)'>
             <source srcset="assets/images/hero--small.jpg" alt='qq' media='(min-width:640px)'>
             <source srcset="assets/images/hero--large-hi-dpi.jpg 3800w" alt='qq' media='(min-width:1380px)'>
-            <img srcset="assets/images/hero--smaller.jpg" alt='qq' class='large-hero__img'>
+            <img src="assets/images/hero--smaller.jpg" alt='qq' class='large-hero__img'>
         </picture>
         <div class="large-hero__text-content">
             <div class="wrapper">
@@ -66,7 +67,7 @@
     <div id="features" class="page-section page-section--blue">
         <div class="wrapper">
             <h2 class='section-title'><img src="assets/images/icons/star.svg" class='section-title__icon'>Our <strong>Features</strong></h2>
-            <div class="row row--gutters-large generic-content-container">
+            <div class="row row--gutters-large  generic-content-container">
                 <div class="row__medium-6">
                     <div class="feature-item">
                         <img src="assets/images/icons/rain.svg" class="feature-item__icon">
@@ -93,21 +94,36 @@
             </div>
         </div>
     </div>
-    <div id="testimonials">
-        <img src="assets/images/icons/comment.svg">
-        <h2>Real Testimonials</h2>
-        <img src="assets/images/testimonial-jane.jpg">
-        <h3>Jane Doe</h3>
-        <h3>9 Time Escaper</h3>
-        <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;</p>
-        <img src="assets/images/testimonial-john.jpg">
-        <h3>John Smith</h3>
-        <h3>4 Time Escaper</h3>
-        <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur.&rdquo;</p>
-        <img src="assets/images/testimonial-cat.jpg">
-        <h3>Cat McKitty</h3>
-        <h3>6 Time Escaper</h3>
-        <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.&rdquo;</p>
+    <div id="testimonials" class='page-section page-section--testimonials'>
+        <div class="wrapper wrapper--no-padding-until-large">
+            <h2 class='section-title section-title--blue'><img class='section-title__icon' src="assets/images/icons/comment.svg">Real <strong>Testimonials</strong></h2>
+            <div class="row row--gutters row--gutters-small row--t-padding generic-content-container row--equal-height-at-medium">
+                <div class="testimonial row__large-4">
+                    <div class="testimonial__photo">
+                        <img src="assets/images/testimonial-jane.jpg">
+                    </div>
+                    <h3 class='testimonial__title'>Jane Doe</h3>
+                    <h4 class='testimonial__subtitle'>9 Time Escaper</h4>
+                    <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&rdquo;</p>
+                </div>
+                <div class="testimonial row__large-4">
+                    <div class="testimonial__photo">
+                        <img src="assets/images/testimonial-john.jpg">
+                    </div>
+                    <h3 class='testimonial__title'>John Smith</h3>
+                    <h4 class='testimonial__subtitle'>4 Time Escaper</h4>
+                    <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur.&rdquo;</p>
+                </div>
+                <div class="testimonial testimonial--last row__large-4">
+                    <div class="testimonial__photo">
+                        <img src="assets/images/testimonial-cat.jpg">
+                    </div>
+                    <h3 class='testimonial__title'>Cat McKitty</h3>
+                    <h4 class='testimonial__subtitle'>6 Time Escaper</h4>
+                    <p>&ldquo;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.&rdquo;</p>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <p>Copyright &copy; 2016 Clear View Escapes. All rights reserved. <a href="#" class="btn btn--orange">Get in Touch</a></p>

@@ -3,7 +3,14 @@
     padding: 0 18px;
     max-width: 1236px;
     margin: auto;
-
+&--no-padding-until-large{
+    padding-left: 0;
+    padding-right: 0;
+    @include atLarge{
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+}
     &--medium {
         max-width: 976px;
     }
