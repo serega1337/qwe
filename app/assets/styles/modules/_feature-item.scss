@@ -1,0 +1,29 @@
+.feature-item {
+    @include atSmall {
+        padding-left: 94px;
+    }
+
+    position: relative;
+    margin-bottom: 3.5rem;
+
+    &__icon {
+margin: auto;display: block;        @include atSmall {
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: .8rem;
+        margin-top: .7em;
+        font-size: 1.6rem;
+
+        @include atSmall {
+            margin: 1em;
+            font-size: 1.875rem;
+            text-align: left;
+        }
+    }
+}
