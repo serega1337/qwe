@@ -331,6 +331,8 @@ template {
 .large-hero {
   position: relative;
   border-bottom: 10px solid #2f5572; }
+  .large-hero__img {
+    display: block; }
   .large-hero__text-content {
     position: absolute;
     width: 100%;
@@ -377,8 +379,7 @@ a {
 
 img {
   max-width: 100%;
-  height: auto;
-  display: block; }
+  height: auto; }
 
 .btn {
   background-color: #2f5572;
@@ -435,6 +436,11 @@ img {
 .row--gutters > div {
   padding-right: 65px; }
 
+.row--gutters-large {
+  margin-right: -100px; }
+  .row--gutters-large > div {
+    padding-right: 100px; }
+
 .row__b-margin-until-medium {
   margin-bottom: 1rem; }
 
@@ -446,6 +452,9 @@ img {
     width: 33.33%; }
   .row__medium-4--larger {
     width: 37%; }
+  .row__medium-6 {
+    float: left;
+    width: 50%; }
   .row__medium-8 {
     float: left;
     width: 66.66%; }
@@ -456,6 +465,8 @@ img {
 
 .generic-content-container p {
   line-height: 1.65;
+  font-weight: 300;
+  margin: 0 0 1.8rem 0;
   margin: 1.8rem 0; }
   @media screen and (min-width: 530px) {
     .generic-content-container p {
@@ -463,3 +474,49 @@ img {
 
 .generic-content-container p a {
   font-weight: 700; }
+
+.section-title {
+  font-size: 2.55rem;
+  font-weight: 300;
+  text-align: center; }
+  @media screen and (min-width: 530px) {
+    .section-title {
+      font-size: 3.75rem; } }
+  .section-title strong {
+    font-weight: 500; }
+  .section-title__icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .6rem; }
+    @media screen and (min-width: 530px) {
+      .section-title__icon {
+        display: inline;
+        margin-right: .5rem;
+        margin-left: 0;
+        margin-bottom: 0; } }
+
+.feature-item {
+  position: relative;
+  margin-bottom: 3.5rem; }
+  @media screen and (min-width: 530px) {
+    .feature-item {
+      padding-left: 94px; } }
+  .feature-item__icon {
+    margin: auto;
+    display: block; }
+    @media screen and (min-width: 530px) {
+      .feature-item__icon {
+        position: absolute;
+        left: 0; } }
+  .feature-item__title {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: .8rem;
+    margin-top: .7em;
+    font-size: 1.6rem; }
+    @media screen and (min-width: 530px) {
+      .feature-item__title {
+        margin: 1em;
+        font-size: 1.875rem;
+        text-align: left; } }
