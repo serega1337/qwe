@@ -22,7 +22,7 @@
         margin-bottom: .6rem;
 
         @include atSmall {
-            display: inline;
+            display: inline-block;
             position: relative;
             top: 8px;
             margin-right: .5rem;
