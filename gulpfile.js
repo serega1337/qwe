@@ -79,11 +79,11 @@ function copySpriteGraphic(cb) {
 }
 
 function cleanSprite() {
-    return del(['./app/temp/sprite', './app/assets/images/sprites']);
+    return del.sync(['./app/temp/sprite', './app/assets/images/sprites']);
 }
 
-function endCleanSprite() {
-    return del(['./app/temp/sprite']);
+function endCleanSprite(cb) {
+    return del.sync(['./app/temp/sprite']);
 }
 exports.cleanSprite = cleanSprite;
 exports.endCleanSprite = endCleanSprite;
