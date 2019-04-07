@@ -668,3 +668,18 @@ img {
   width: 34.75px;
   height: 42px;
   background-position: 36.69752421959096% 45.792307692307695%; }
+
+.site-footer {
+  background: #2f5572;
+  color: #fff;
+  padding: 0.5rem 0;
+  text-align: center; }
+  .site-footer__text {
+    margin-bottom: 1rem;
+    display: block;
+    font-weight: 200; }
+    @media (min-width: 800px) {
+      .site-footer__text {
+        display: inline-block;
+        margin-bottom: auto;
+        margin-right: 1.4rem; } }
