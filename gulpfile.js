@@ -3,8 +3,13 @@ var sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     rename = require('gulp-rename'),
     del = require('del');
+webpack = require('webpack');
 
-
+let sloop = () => {
+    return new Promise(resolve => {
+        setTimeout(resolve, 2000);
+    });
+}
 
 function scss(cb) {
     src('./app/assets/styles/**/*.scss')
@@ -14,14 +19,26 @@ function scss(cb) {
 }
 
 function watch_files() {
-    watch('./app/assets/styles/**/*.scss', series(scss, css_stream))
-    watch('./app/index.html', reloadHTML)
+    watch('./app/assets/styles/**/*.scss', series(scss, css_stream));
+    watch('./app/index.html', reloadPage);
+    watch('./app/assets/scripts/**/*.js', series(scripts, sloop, reloadPage));
 }
 
-function reloadHTML(cb) {
+function reloadPage(cb) {
     browserSync.reload();
     cb()
 }
+
+function scripts(cb) {
+     webpack(require('./webpack.config.js'), function(err, stats) {
+        if (err) {
+            console.log(err.toString());
+        }
+        console.log(stats.toString());
+    });
+    cb()
+
+};
 
 function browser_sync() {
     browserSync.init({
@@ -37,6 +54,7 @@ function css_stream(cb) {
 }
 
 exports.scss = scss;
+exports.scripts = scripts;
 exports.watch = parallel(watch_files, browser_sync);
 exports.default = exports.watch;
 
@@ -79,13 +97,13 @@ function copySpriteGraphic(cb) {
 }
 
 function cleanSprite() {
-    return del.sync(['./app/temp/sprite', './app/assets/images/sprites']);
+    return del(['./app/temp/sprite', './app/assets/images/sprites']);
 }
 
-function endCleanSprite(cb) {
-    return del.sync(['./app/temp/sprite']);
+function endCleanSprite() {
+    return del(['./app/temp/sprite']);
 }
 exports.cleanSprite = cleanSprite;
 exports.endCleanSprite = endCleanSprite;
-exports.sprites = series(createSprite, parallel(copySpriteGraphic, copySpriteCSS))
+exports.sprites = series(cleanSprite, sloop, createSprite, sloop, parallel(copySpriteGraphic, copySpriteCSS), sloop, endCleanSprite)
 //end sprites!

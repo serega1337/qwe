@@ -1,9 +1,5 @@
 .row {
-    &::after {
-        content: '';
-        clear: both;
-        display: table;
-    }
+    @include clearfix
 
     &--gutters {
         margin-right: -65px;

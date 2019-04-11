@@ -4,11 +4,15 @@
     &__img{display: block;}
 
     &__text-content {
+        padding-top: 88px;
         position: absolute;
         width: 100%;
         text-align: center;
         top: 50%;
         transform: translateY(-50%);
+        @include atMedium{
+            
+        }
     }
 
     &__title {
