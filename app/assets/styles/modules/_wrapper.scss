@@ -3,16 +3,22 @@
     padding: 0 18px;
     max-width: 1236px;
     margin: auto;
-&--no-padding-until-large{
-    padding-left: 0;
-    padding-right: 0;
-    @include atLarge{
-        padding-right: 18px;
-        padding-left: 18px;
+
+    &--no-padding-until-large {
+        padding-left: 0;
+        padding-right: 0;
+
+        @include atLarge {
+            padding-right: 18px;
+            padding-left: 18px;
+        }
     }
-}
+
     &--medium {
         max-width: 976px;
+    }
+    &--narrow{
+        max-width: 470px;
     }
 
     .wrapper {
@@ -21,7 +27,8 @@
     }
 
     &--b-margin {
-    	margin-bottom:1.5rem;
+        margin-bottom: 1.5rem;
+
         @include atSmall {
             margin-bottom: 3.875rem;
         }

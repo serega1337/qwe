@@ -3,6 +3,11 @@
     font-weight: 300;
     text-align: center;
 
+    &--less-margin {
+        margin-bottom: 1.3rem;
+        margin-top: 0;
+    }
+
     @include atSmall {
         font-size: 3.75rem;
     }

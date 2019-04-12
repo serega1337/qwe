@@ -317,6 +317,8 @@ template {
         padding-left: 18px; } }
   .wrapper--medium {
     max-width: 976px; }
+  .wrapper--narrow {
+    max-width: 470px; }
   .wrapper .wrapper {
     padding-left: 0;
     padding-right: 0; }
@@ -526,6 +528,9 @@ img {
   font-size: 2.55rem;
   font-weight: 300;
   text-align: center; }
+  .section-title--less-margin {
+    margin-bottom: 1.3rem;
+    margin-top: 0; }
   @media screen and (min-width: 530px) {
     .section-title {
       font-size: 3.75rem; } }
@@ -839,3 +844,64 @@ img {
   .reveal-item--is-visible {
     opacity: 1;
     transform: scale(1); }
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.94);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  transform: scale(1.2);
+  transition: all .2s ease-out; }
+  .modal--is-visible {
+    visibility: visible;
+    transform: scale(1); }
+  @media (min-width: 800px) {
+    .modal {
+      top: 5%;
+      bottom: 5%;
+      left: 5%;
+      right: 5%; } }
+  .modal__description {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.65; }
+  .modal__inner {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%); }
+  .modal__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2rem;
+    transform: scaleX(1.3);
+    transform-origin: 100% 0;
+    color: #2f5572;
+    cursor: pointer; }
+    .modal__close:hover {
+      color: #d59541; }
+
+.social-icons {
+  text-align: center; }
+  .social-icons__icons {
+    background-color: #d59541;
+    display: inline-block;
+    margin: 0 5px 5px 5px;
+    width: 33%;
+    height: 72px;
+    position: relative; }
+    @media screen and (min-width: 530px) {
+      .social-icons__icons {
+        width: 72px;
+        margin: 0 5px; } }
+    .social-icons__icons .icon {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
