@@ -16,8 +16,8 @@ class Modal {
         $(document).keyup(this.keyPressHandler.bind(this));
     }
     keyPressHandler(e) {
-        if (e.keyCode === 26){
-        	this.closeModal();
+        if (e.keyCode === 26) {
+            this.closeModal();
         }
     }
     openModal() {
