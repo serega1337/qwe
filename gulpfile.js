@@ -2,8 +2,14 @@ var { src, task, series, parallel, dest, watch } = require('gulp');
 var sass = require('gulp-sass'),
     browserSync = require('browser-sync').create(),
     rename = require('gulp-rename'),
-    del = require('del');
-webpack = require('webpack');
+    del = require('del'),
+    webpack = require('webpack'),
+    imagemin = require('gulp-imagemin'),
+    usemin = require('gulp-usemin'),
+    rev = require('gulp-rev'),
+    cssnano = require('gulp-cssnano'),
+    uglify = require('gulp-uglify');
+
 
 let sloop = () => {
     return new Promise(resolve => {
@@ -30,7 +36,7 @@ function reloadPage(cb) {
 }
 
 function scripts(cb) {
-     webpack(require('./webpack.config.js'), function(err, stats) {
+    webpack(require('./webpack.config.js'), function(err, stats) {
         if (err) {
             console.log(err.toString());
         }
@@ -68,6 +74,11 @@ svgSprite = require('gulp-svg-sprite');
 function createSprite(cb) {
     src('app/assets/images/icons/**/*.svg')
         .pipe(svgSprite({
+            shape: {
+                spacing: {
+                    padding: 1
+                }
+            },
             mode: {
                 css: { // Activate the «css» mode
                     sprite: 'sprite.svg',
@@ -107,3 +118,56 @@ exports.cleanSprite = cleanSprite;
 exports.endCleanSprite = endCleanSprite;
 exports.sprites = series(cleanSprite, sloop, createSprite, sloop, parallel(copySpriteGraphic, copySpriteCSS), sloop, endCleanSprite)
 //end sprites!
+
+//build
+
+
+
+function deleteDist() {
+    return del('./docs');
+}
+
+function copyGeneralFiles(cb) {
+    let pathsToCopy = [
+        './app/**/*',
+        '!./app/index.html',
+        '!./app/assets/images/**',
+        '!./app/assets/scripts/**',
+        '!./app/assets/styles/**',
+        '!./app/temp/**',
+        '!./app/temp',
+
+    ]
+    src(pathsToCopy)
+        .pipe(dest('./docs'))
+        cb()
+}
+
+function optimizeImages(cb) {
+    src(['./app/assets/images/**/*', '!./app/assets/images/icons/*', '!./app/assets/images/icons/**', '!./app/assets/images/icons/'])
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ]))
+        .pipe(dest('./docs/assets/images'));
+    cb()
+}
+
+function useMin(cb) {
+    src('./app/index.html')
+        .pipe(usemin({
+            css: [() => { return rev() }, () => { return cssnano() }],
+            js: [() => { return rev() }, () => { return uglify() }],
+
+        }))
+        .pipe(dest('./docs'))
+    cb()
+}
+exports.build = series(deleteDist, sloop, parallel(optimizeImages, useMin, copyGeneralFiles))

@@ -2,7 +2,7 @@ const path = require('path');
 module.exports = {
     entry: {
         App:"./app/assets/scripts/App.js",
-        vendor:'./app/assets/scripts/Vendor.js'
+        vendor:'./app/assets/scripts/vendor.js'
     },
     output: {
         path: path.resolve(__dirname, "./app/temp/scripts"),

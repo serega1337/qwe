@@ -13,11 +13,11 @@ class Modal {
         //click close buttn
         this.colseModalButton.click(this.closeModal.bind(this));
         //push any key tto
-        $(document).keyup(this.keyPressHandler.bind(this));
+        $(document).keyup(this.keyPressHandler.bind());
     }
     keyPressHandler(e) {
-        if (e.keyCode === 26) {
-            this.closeModal();
+        if (e.keyCode === 27){
+        	this.closeModal();
         }
     }
     openModal() {
