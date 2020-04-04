@@ -1,2 +1,0 @@
-import 'lazysizes';
-import 'picturefill';
