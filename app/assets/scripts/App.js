@@ -1,11 +1,29 @@
-import $ from 'jquery';
-import MobileMenu228 from './modules/MobileMenu';
-import RevealOnScroll from './modules/revealOnScroll';
-import StickyHeader from './modules/StickyHeader';
-import Modal from './modules/Modal';
+import '../styles/styles.css'
+import 'lazysizes'
+import MobileMenu from './modules/MobileMenu'
+import RevealOnScroll from './modules/RevealOnScroll'
+import StickyHeader from './modules/StickyHeader'
 
-let mobileMenu = new MobileMenu228();
-new RevealOnScroll($('.feature-item'), '85%');
-new RevealOnScroll($('.testimonial'), '69%');
-let stickyHeader = new StickyHeader();
-let modal = new Modal();
+new StickyHeader()
+new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
+new RevealOnScroll(document.querySelectorAll(".testimonial"), 60)
+let modal
+new MobileMenu()
+
+document.querySelectorAll(".open-modal").forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault()
+    if (typeof modal == "undefined") {
+      import(/*webpackChunkName:"MODAL"*/'./modules/Modal').then(x => {
+        modal = new x.default()
+        setTimeout(()=>modal.openTheModal(),100)
+      }).catch(() => console.log('there was a problem for some reason'))
+    } else {
+      modal.openTheModal()
+    }
+  })
+})
+if (module.hot) {
+  module.hot.accept()
+}
+
