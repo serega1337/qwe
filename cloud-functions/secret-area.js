@@ -1,6 +1,26 @@
 exports.handler = function (event, context, callback) {
-    callback(null,{
-        statusCode:200,
-        body:"wassup",
-    })
+    const secretContent = `
+    <h3>Wassup area</h3>
+    <b>sup clown</b>
+    `
+    
+    let body
+
+    if (event.body) {
+        body = JSON.parse(event.body)
+    } else {
+        body = {}
+    }
+
+    if (body.password == "1234clown") {
+        callback(null, {
+            statusCode: 200,
+            body: secretContent
+        })
+    } else {
+        callback(null, {
+            statusCode: 401
+        })
+    }
+    
 }
