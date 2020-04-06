@@ -46,6 +46,7 @@ let config = {
 
 if (currentTask == 'dev') {
   cssConfig.use.unshift('style-loader')
+  config.plugins.splice(0)
   config.output = {
     filename: 'bundled.js',
     path: path.resolve(__dirname, 'app')
